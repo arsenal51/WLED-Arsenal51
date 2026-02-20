@@ -11,7 +11,7 @@
 
 # Arsenal51 Orbiter WLED (Fork)
 
-This repository contains a custom fork of **WLED** developed by Arsenal51 for ESP32-based devices inside the Orbiter. It is designed to provide smooth, reliable LED control with the power of WLED and gives a intuitive interface and easy-to-use presets. The firmware emphasizes simplicity and a plug-and-play experience, allowing users to quickly set up and enjoy vibrant lighting without complex configuration.
+This repository contains a custom fork of **WLED** edited by Arsenal51 for ESP32-based devices inside the Orbiter. It is designed to provide smooth, reliable LED control with the power of WLED and gives a intuitive interface and easy-to-use presets. The firmware emphasizes simplicity and a plug-and-play experience, allowing users to quickly set up and enjoy vibrant lighting without complex configuration.
 
 
 Forked of WLED - Originally created by [Aircoookie](https://github.com/Aircoookie)
@@ -21,7 +21,10 @@ Forked of WLED - Originally created by [Aircoookie](https://github.com/Aircoooki
 - ESP32 Arsenal51 controller boards
 - Approved Orbiter-compatible devices
 
-No not use this modified software in anything other than Arsenal51 products. Please use the official WLED repository for other ventures. Flashing instructions will vary depending on your controller version inside the Orbiter which may change in the future. Refer to the Docs section on arsenal51.com for detailed installation guidance.
+We reccomend to **NOT** use or build this modified software in anything other than Arsenal51 products. Please use the official **WLED** repository for other ventures. Flashing instructions will vary depending on your controller version inside the Orbiter which may change in the future. Refer to the Docs section on arsenal51.com for detailed installation guidance.
+
+<p align="center">
+  <img src="/images/orbiter-card.png">
 
 ## Features
 
@@ -33,6 +36,7 @@ No not use this modified software in anything other than Arsenal51 products. Ple
 - Over-the-air (OTA) firmware updates  
 - Simple network setup with AP + Station mode  
 - Filesystem-based backup of presets and settings  
+
 **Customizations may include:**
 - Preconfigured LED mapping for The Orbiter
 - Tuned brightness and power limits
@@ -59,10 +63,10 @@ The documentation portal includes comprehensive setup guides, firmware configura
 
 ## Credits And License
 
-Licensed under the EUPL v1.2 license [here](https://raw.githubusercontent.com/wled-dev/WLED/main/LICENSE)
-Credits [here](https://kno.wled.ge/about/contributors/)!
-CORS proxy by [Corsfix](https://corsfix.com/)
-Official WLED Repository [here](https://wled.me)
+Licensed under the EUPL v1.2 license [here](https://raw.githubusercontent.com/wled-dev/WLED/main/LICENSE)<br>
+Credits [here](https://kno.wled.ge/about/contributors/)!<br>
+CORS proxy by [Corsfix](https://corsfix.com/)<br>
+Official WLED Repository [here](https://wled.me)<br>
 Official WLED Documentation [here](https://kno.wled.ge/)
 
 Join the Official Arsenal51 Discord server for additional help!
