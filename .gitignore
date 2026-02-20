@@ -26,6 +26,10 @@ wled-update.sh
 /wled00/extLibs
 /wled00/LittleFS
 /wled00/Release
+/wled00/.gitpod.Dockerfile
+/wled00/config.h
+/wled00/sample_config.h
+/wled00/src/platformio_override.sample.ini
 /wled00/wled00.ino.cpp
 /wled00/html_*.h
 /wled00/js_*.h

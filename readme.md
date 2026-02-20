@@ -1,87 +1,78 @@
 <p align="center">
-  <img src="/images/wled_logo_akemi.png">
-  <a href="https://github.com/wled-dev/WLED/releases"><img src="https://img.shields.io/github/release/wled-dev/WLED.svg?style=flat-square"></a>
+  <img src="/images/arsenal51-github-logo.png">
+
+  <a href="https://discord.gg/QAh7wJHrRM"><img src="https://img.shields.io/discord/1302348014655901807.svg?colorB=blue&label=discord&style=flat-square"></a>
+  <a href="https://docs.arsenal51.com/"><img src="https://img.shields.io/badge/docs-arsenal51-blue?style=flat-square&logo=gitbook&logoColor=white"></a>
+  <a href="https://arsenal51.com/"><img src="https://img.shields.io/badge/website-arsenal51-blue?style=flat-square&logo=internet-explorer&logoColor=white"></a>
   <a href="https://raw.githubusercontent.com/wled-dev/WLED/main/LICENSE"><img src="https://img.shields.io/github/license/wled-dev/wled?color=blue&style=flat-square"></a>
-  <a href="https://wled.discourse.group"><img src="https://img.shields.io/discourse/topics?colorB=blue&label=forum&server=https%3A%2F%2Fwled.discourse.group%2F&style=flat-square"></a>
-  <a href="https://discord.gg/QAh7wJHrRM"><img src="https://img.shields.io/discord/473448917040758787.svg?colorB=blue&label=discord&style=flat-square"></a>
-  <a href="https://kno.wled.ge"><img src="https://img.shields.io/badge/quick_start-wiki-blue.svg?style=flat-square"></a>
-  <a href="https://github.com/Aircoookie/WLED-App"><img src="https://img.shields.io/badge/app-wled-blue.svg?style=flat-square"></a>
-  <a href="https://gitpod.io/#https://github.com/wled-dev/WLED"><img src="https://img.shields.io/badge/Gitpod-ready--to--code-blue?style=flat-square&logo=gitpod"></a>
+
 
   </p>
 
-# Welcome to WLED! ✨
+# Arsenal51 Orbiter WLED (Fork)
 
-A fast and feature-rich implementation of an ESP32 and ESP8266 webserver to control NeoPixel (WS2812B, WS2811, SK6812) LEDs or also SPI based chipsets like the WS2801 and APA102!
+This repository contains a custom fork of **WLED** developed by Arsenal51 for ESP32-based devices inside the Orbiter. It is designed to provide smooth, reliable LED control with the power of WLED and gives a intuitive interface and easy-to-use presets. The firmware emphasizes simplicity and a plug-and-play experience, allowing users to quickly set up and enjoy vibrant lighting without complex configuration.
 
-Originally created by [Aircoookie](https://github.com/Aircoookie)
 
-## ⚙️ Features
-- WS2812FX library with more than 100 special effects  
-- FastLED noise effects and 50 palettes  
-- Modern UI with color, effect and segment controls  
-- Segments to set different effects and colors to user defined parts of the LED string  
-- Settings page - configuration via the network  
-- Access Point and station mode - automatic failsafe AP  
-- [Up to 10 LED outputs](https://kno.wled.ge/features/multi-strip/#esp32) per instance
-- Support for RGBW strips  
-- Up to 250 user presets to save and load colors/effects easily, supports cycling through them.  
-- Presets can be used to automatically execute API calls  
-- Nightlight function (gradually dims down)  
-- Full OTA software updateability (HTTP + ArduinoOTA), password protectable  
-- Configurable analog clock (Cronixie, 7-segment and EleksTube IPS clock support via usermods) 
-- Configurable Auto Brightness limit for safe operation  
-- Filesystem-based config for easier backup of presets and settings  
+Forked of WLED - Originally created by [Aircoookie](https://github.com/Aircoookie)
 
-## 💡 Supported light control interfaces
-- WLED app for [Android](https://play.google.com/store/apps/details?id=ca.cgagnier.wlednativeandroid) and [iOS](https://apps.apple.com/gb/app/wled-native/id6446207239)
-- JSON and HTTP request APIs  
-- MQTT   
-- E1.31, Art-Net, DDP and TPM2.net
-- [diyHue](https://github.com/diyhue/diyHue) (Wled is supported by diyHue, including Hue Sync Entertainment under udp. Thanks to [Gregory Mallios](https://github.com/gmallios))
-- [Hyperion](https://github.com/hyperion-project/hyperion.ng)
-- UDP realtime  
-- Alexa voice control (including dimming and color)  
-- Sync to Philips hue lights  
-- Adalight (PC ambilight via serial) and TPM2  
-- Sync color of multiple WLED devices (UDP notifier)  
-- Infrared remotes (24-key RGB, receiver required)  
-- Simple timers/schedules (time from NTP, timezones/DST supported)  
+**This firmware is intended for:**
+- Arsenal51 Orbiter production hardware
+- ESP32 Arsenal51 controller boards
+- Approved Orbiter-compatible devices
 
-## 📲 Quick start guide and documentation
+No not use this modified software in anything other than Arsenal51 products. Please use the official WLED repository for other ventures. Flashing instructions will vary depending on your controller version inside the Orbiter which may change in the future. Refer to the Docs section on arsenal51.com for detailed installation guidance.
 
-See the [documentation on our official site](https://kno.wled.ge)!
+## Features
 
-[On this page](https://kno.wled.ge/basics/tutorials/) you can find excellent tutorials and tools to help you get your new project up and running!
+- Custom Arsenal51 fork of WLED for Orbiter 
+- 100+ lighting effects with smooth transitions  
+- Curated color palettes  
+- Easy-to-use web UI for controlling color, effects, and brightness  
+- Presets for saving and recalling your favorite effects  
+- Over-the-air (OTA) firmware updates  
+- Simple network setup with AP + Station mode  
+- Filesystem-based backup of presets and settings  
+**Customizations may include:**
+- Preconfigured LED mapping for The Orbiter
+- Tuned brightness and power limits
+- Optimized effect speeds
+- Custom LED presets
 
-## 🖼️ User interface
-<img src="/images/macbook-pro-space-gray-on-the-wooden-table.jpg" width="50%"><img src="/images/walking-with-iphone-x.jpg" width="50%">
+## Control Interfaces
 
-## 💾 Compatible hardware
+- Official Arsenal51 mobile apps (Android & iOS)  
+- Official WLED mobile apps (Android & iOS)  
+- Web-based control panel  
+- Alexa, Google Home, and Apple HomeKit support  
+- MQTT for smart home integration  
+- Hyperion Ambilight support  
+- Simple JSON/HTTP API for integration with Arsenal51 apps  
+ 
 
-See [here](https://kno.wled.ge/basics/compatible-hardware)!
+## Quickstart Guide / Documentation
 
-## ✌️ Other
+See the full documentation on our official site:  
+https://docs.arsenal51.com
 
-Licensed under the EUPL v1.2 license  
+The documentation portal includes comprehensive setup guides, firmware configuration references, hardware specifications, flashing instructions, troubleshooting resources, and step-by-step tutorials to help you deploy, configure, and optimize your Arsenal51 device.
+
+## Credits And License
+
+Licensed under the EUPL v1.2 license [here](https://raw.githubusercontent.com/wled-dev/WLED/main/LICENSE)
 Credits [here](https://kno.wled.ge/about/contributors/)!
 CORS proxy by [Corsfix](https://corsfix.com/)
+Official WLED Repository [here](https://wled.me)
+Official WLED Documentation [here](https://kno.wled.ge/)
 
-Join the Discord server to discuss everything about WLED!
+Join the Official Arsenal51 Discord server for additional help!
 
-<a href="https://discord.gg/QAh7wJHrRM"><img src="https://discordapp.com/api/guilds/473448917040758787/widget.png?style=banner2" width="25%"></a>
+<a href="https://discord.com/invite/h2C8yjN47M"><img src="https://discordapp.com/api/guilds/1302348014655901807/widget.png?style=banner2" width="25%"></a>
 
-Check out the WLED [Discourse forum](https://wled.discourse.group)!  
+## *Disclaimer:*  
 
-You can also send me mails to [dev.aircoookie@gmail.com](mailto:dev.aircoookie@gmail.com), but please, only do so if you want to talk to me privately.  
+If you are prone to photosensitive epilepsy, we strongly recommend you do **NOT** use this software or any Arsenal51 products. If you choose to proceed, you must avoid strobe, lighting, flashing, or noise modes and refrain from enabling high-speed effect settings.  
 
-If WLED really brightens up your day, you can [![](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/aircoookie)
+Pursuant to the EUPL license, WLED and Arsenal51 disclaim all liability for any injury, damage, loss, or harm to any person, property, or equipment arising from or related to the use of this software or associated products.
 
-
-*Disclaimer:*   
-
-If you are prone to photosensitive epilepsy, we recommended you do **not** use this software.  
-If you still want to try, don't use strobe, lighting or noise modes or high effect speed settings.
-
-As per the EUPL license, I assume no liability for any damage to you or any other person or equipment.  
 
