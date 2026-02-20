@@ -23,9 +23,6 @@ Forked of WLED - Originally created by [Aircoookie](https://github.com/Aircoooki
 
 We reccomend to **NOT** use or build this modified software in anything other than Arsenal51 products. Please use the official **WLED** repository for other ventures. Flashing instructions will vary depending on your controller version inside the Orbiter which may change in the future. Refer to the Docs section on arsenal51.com for detailed installation guidance.
 
-<p align="center">
-  <img src="/images/orbiter-card.png">
-
 ## Features
 
 - Custom Arsenal51 fork of WLED for Orbiter 
@@ -52,6 +49,9 @@ We reccomend to **NOT** use or build this modified software in anything other th
 - MQTT for smart home integration  
 - Hyperion Ambilight support  
 - Simple JSON/HTTP API for integration with Arsenal51 apps  
+
+<p align="center">
+  <img src="/images/orbiter-card.png">
  
 
 ## Quickstart Guide / Documentation
