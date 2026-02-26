@@ -1,0 +1,238 @@
+/* Base Reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  background: #000000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Particle canvas styling */
+#particleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Layout Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.logo-container {
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1s ease-out 0.1s backwards;
+}
+
+.main {
+  width: 100%;
+  max-width: 420px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 1s ease-out 0.3s backwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(100, 213, 255, 0.3), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Logo */
+img {
+  max-width: 280px;
+  margin-bottom: 0;
+  filter: drop-shadow(0 0 20px rgba(100, 213, 255, 0.3));
+  transition: transform 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Titles */
+h1 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  animation: fadeIn 1s ease-out 0.2s backwards;
+}
+
+h3 {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  animation: fadeIn 1s ease-out 0.3s backwards;
+}
+
+h4 {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  animation: fadeIn 1s ease-out 0.4s backwards;
+}
+
+p {
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  animation: fadeIn 1s ease-out 0.5s backwards;
+}
+
+/* Links */
+a {
+  color: #64D5FF;
+  text-decoration: none;
+  font-weight: 700;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #64D5FF;
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+a:hover {
+  color: #7AE1FF;
+  text-shadow: 0 0 10px rgba(100, 213, 255, 0.5);
+}
+
+/* Buttons */
+button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin: 0.8rem 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #64D5FF, #4AB8E6);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(100, 213, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: fadeIn 1s ease-out 0.6s backwards;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #7AE1FF, #64D5FF);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(100, 213, 255, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Info text */
+i {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: normal;
+  animation: fadeIn 1s ease-out 0.7s backwards;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 { font-size: 1.6rem; }
+  h3 { font-size: 1.1rem; }
+  h4 { font-size: 1rem; }
+  button { font-size: 0.95rem; padding: 0.9rem; }
+  img { max-width: 220px; }
+  .main { 
+    padding: 1.5rem 1.2rem;
+    margin: 0 1rem;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.4rem; }
+  h3 { font-size: 1.1rem; }
+  h4 { font-size: 0.9rem; }
+  button { font-size: 0.9rem; padding: 0.8rem; }
+  img { max-width: 180px; }
+  .main { 
+    padding: 1.2rem 1rem;
+    margin: 0 0.5rem;
+    max-width: 300px;
+  }
+}

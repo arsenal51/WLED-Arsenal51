@@ -382,6 +382,11 @@ void initServer()
     request->send(response);
   });
 
+  static const char _welcome_css[] PROGMEM = "/welcome.css";
+  server.on(_welcome_css, HTTP_GET, [](AsyncWebServerRequest *request) {
+    handleStaticContent(request, FPSTR(_welcome_css), 200, FPSTR(CONTENT_TYPE_CSS), PAGE_welcomeCss, PAGE_welcomeCss_length);
+  });
+
   server.on(F("/welcome"), HTTP_GET, [](AsyncWebServerRequest *request){
     serveSettings(request);
   });

@@ -433,6 +433,12 @@ const char PAGE_dmxmap[] PROGMEM = R"=====()=====";
       filter: "html-minify",
     },
     {
+      file: "welcome.css",
+      name: "PAGE_welcomeCss",
+      method: "gzip",
+      filter: "css-minify",
+    },
+    {
       file: "liveview.htm",
       name: "PAGE_liveview",
       method: "gzip",
