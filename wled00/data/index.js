@@ -3330,12 +3330,12 @@ function showVersionUpgradePrompt(info, oldVersion, newVersion) {
 
 	// Build contextual message based on install vs upgrade
 	const title = isInstall
-		? '🎉 Thank you for installing WLED!'
-		: '🎉 WLED Upgrade Detected!';
+		? 'Your Orbiter is now CONNECTED!'
+		: 'Orbiter Upgrade Detected!';
 
 	const description = isInstall
-		? `You are now running WLED <strong style="text-wrap: nowrap">${newVersion}</strong>.`
-		: `Your WLED has been upgraded from <strong style="text-wrap: nowrap">${oldVersion}</strong> to <strong style="text-wrap: nowrap">${newVersion}</strong>.`;
+		? `You are now running Orbiter version <strong style="text-wrap: nowrap">${newVersion}</strong>.`
+		: `Your Orbiter has been upgraded from <strong style="text-wrap: nowrap">${oldVersion}</strong> to <strong style="text-wrap: nowrap">${newVersion}</strong>.`;
 
 	const question = 'Help make WLED better with a one-time hardware report? It includes only device details like chip type, LED count, etc. — never personal data or your activities.'
 
