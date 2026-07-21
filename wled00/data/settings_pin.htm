@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#06080b">
+<title>PIN required · Arsenal51</title>
+<style>
+  @font-face{font-family:'Barlow';font-style:normal;font-weight:700;src:url('/Barlow-Bold.woff2') format('woff2');}
+  :root{--ground:#06080b;--glass:rgba(255,255,255,.05);--glass-2:rgba(255,255,255,.08);--line:rgba(255,255,255,.10);--line-2:rgba(100,213,255,.28);--acc:#64d5ff;--acc-2:#4ab8e6;--glow:rgba(100,213,255,.42);--ink:#e8f4fa;--mut:rgba(232,244,250,.55);--mut-2:rgba(232,244,250,.34);--font:'Barlow',-apple-system,'Segoe UI',system-ui,sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{visibility:visible}
+  body{font-family:var(--font);background:var(--ground);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh;display:grid;place-items:center;padding:20px}
+  svg{display:block}
+  #bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+  #bg::before,#bg::after{content:"";position:fixed;border-radius:50%;filter:blur(80px);opacity:.5}
+  #bg::before{width:80vw;height:80vw;left:-30vw;top:-32vw;background:radial-gradient(circle,rgba(100,213,255,.2),transparent 66%);animation:drift 22s ease-in-out infinite alternate}
+  #bg::after{width:70vw;height:70vw;right:-25vw;bottom:-26vw;background:radial-gradient(circle,rgba(74,184,230,.15),transparent 68%);animation:drift 26s ease-in-out infinite alternate-reverse}
+  @keyframes drift{to{transform:translate3d(5vw,4vw,0) scale(1.14)}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  .lock{position:relative;z-index:1;width:100%;max-width:360px;text-align:center;background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:34px 26px 28px;backdrop-filter:blur(16px)}
+  .mark{width:56px;height:56px;margin:0 auto 18px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(150deg,rgba(100,213,255,.22),rgba(100,213,255,.04));border:1px solid var(--line-2);box-shadow:0 0 22px rgba(100,213,255,.2),inset 0 0 14px rgba(100,213,255,.12)}
+  .mark svg{width:30px;height:30px}
+  h1{font-size:1.24rem;font-weight:800}
+  p{font-size:.84rem;color:var(--mut);margin:9px 0 22px;line-height:1.5}
+  input[name=PIN]{width:170px;font-family:var(--font);font-weight:700;font-size:1.7rem;letter-spacing:.35em;text-align:center;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:14px;color:var(--ink);padding:12px 10px;outline:none;transition:.2s}
+  input[name=PIN]:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(100,213,255,.15)}
+  .row{display:flex;gap:10px;margin-top:22px}
+  .btn{flex:1;font-family:var(--font);font-weight:700;font-size:.88rem;padding:13px;border-radius:13px;border:1px solid var(--line-2);background:var(--glass);color:var(--acc);cursor:pointer;transition:.2s}
+  .btn:hover{background:rgba(100,213,255,.12)}
+  .btn.primary{background:linear-gradient(135deg,var(--acc),var(--acc-2));color:#00161f;border-color:transparent;box-shadow:0 6px 20px rgba(100,213,255,.28)}
+  .btn.ghost{color:var(--ink);border-color:var(--line)}
+</style>
+<script>
+  var d=document;
+  function B(){ window.open("../settings","_self"); }
+</script>
+</head>
+<body onload="d.getElementsByName('PIN')[0].focus()">
+<div id="bg"></div>
+<form id="form_s" name="Sf" method="post">
+  <div class="lock">
+    <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2.4"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15" r="1.4" style="fill:var(--acc);stroke:none"/></svg></div>
+    <h1>Enter PIN</h1>
+    <p>Enter your 4-digit PIN to access settings.</p>
+    <input type="password" name="PIN" size="4" maxlength="4" minlength="4" pattern="[0-9]*" inputmode="numeric" autofocus>
+    <div class="row">
+      <button type="button" class="btn ghost" onclick="B()">Back</button>
+      <button type="submit" class="btn primary">Unlock</button>
+    </div>
+  </div>
+</form>
+</body>
+</html>

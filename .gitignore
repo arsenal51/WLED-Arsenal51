@@ -1,0 +1,75 @@
+# PlatformIO and generated build output
+.pio/
+.pioenvs/
+.piolibdeps/
+.buildcache/
+.cache/
+/build_output/
+compile_commands.json
+.sconsign*.dblite
+/dependencies.lock
+/managed_components/
+
+# Node tooling
+/node_modules/
+/coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.idea.pio/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/tasks.json
+*.swp
+*.swo
+*~
+
+# Local assistant configuration
+.agents/
+.claude/
+.claude-flow/
+.cursor/
+.cursorrules
+.aider*
+.continue/
+.windsurf/
+.windsurfrules
+.roo/
+.serena/
+.gemini/
+CLAUDE.md
+GEMINI.md
+AGENTS.md
+*.mcp.json
+
+# Local configuration and helper files
+.direnv/
+.env
+.env.*
+!.env.example
+platformio_override.ini
+esp01-update.sh
+replace_fs.py
+wled-update.sh
+/logs/
+
+# WLED-generated files and local device configuration
+/wled00/config.h
+/wled00/LittleFS/
+/wled00/Release/
+/wled00/extLibs/
+/wled00/wled00.ino.cpp
+/wled00/html_*.h
+/wled00/js_*.h

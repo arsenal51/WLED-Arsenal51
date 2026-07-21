@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#06080b">
+<title>User Interface · Arsenal51</title>
+<style>
+  @font-face{font-family:'Barlow';font-style:normal;font-weight:700;src:url('/Barlow-Bold.woff2') format('woff2');}
+  :root{--ground:#06080b;--glass:rgba(255,255,255,.05);--glass-2:rgba(255,255,255,.08);--line:rgba(255,255,255,.10);--line-2:rgba(100,213,255,.28);--acc:#64d5ff;--acc-2:#4ab8e6;--glow:rgba(100,213,255,.42);--ink:#e8f4fa;--mut:rgba(232,244,250,.55);--mut-2:rgba(232,244,250,.34);--font:'Barlow',-apple-system,'Segoe UI',system-ui,sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{visibility:visible}
+  body{font-family:var(--font);background:var(--ground);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
+  svg{display:block}
+  #bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+  #bg::before,#bg::after{content:"";position:fixed;border-radius:50%;filter:blur(80px);opacity:.5}
+  #bg::before{width:80vw;height:80vw;left:-30vw;top:-32vw;background:radial-gradient(circle,rgba(100,213,255,.2),transparent 66%);animation:drift 22s ease-in-out infinite alternate}
+  #bg::after{width:70vw;height:70vw;right:-25vw;bottom:-26vw;background:radial-gradient(circle,rgba(74,184,230,.15),transparent 68%);animation:drift 26s ease-in-out infinite alternate-reverse}
+  @keyframes drift{to{transform:translate3d(5vw,4vw,0) scale(1.14)}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  .wrap{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:24px 18px 120px}
+  header{display:flex;align-items:center;gap:13px;margin-bottom:22px}
+  .mark{width:44px;height:44px;border-radius:13px;flex-shrink:0;display:grid;place-items:center;background:linear-gradient(150deg,rgba(100,213,255,.22),rgba(100,213,255,.04));border:1px solid var(--line-2);box-shadow:0 0 18px rgba(100,213,255,.18),inset 0 0 12px rgba(100,213,255,.1)}
+  .mark svg{width:25px;height:25px;stroke:var(--acc);stroke-width:1.6;fill:none;stroke-linecap:round}
+  .htext h1{font-size:1.32rem;font-weight:800;line-height:1}
+  .htext span{display:block;font-size:.57rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mut-2);margin-top:5px}
+  .back{margin-left:auto;display:flex;align-items:center;gap:8px;padding:10px 15px;border-radius:12px;border:1px solid var(--line);background:var(--glass);color:var(--ink);cursor:pointer;transition:.2s;font:700 .8rem var(--font);backdrop-filter:blur(12px)}
+  .back:hover{border-color:var(--line-2);color:var(--acc)}
+  .back svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .card{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px;backdrop-filter:blur(14px)}
+  .card h2{font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--acc);margin-bottom:14px}
+  .field{padding:2px 0}
+  .field label{display:block;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut-2);margin-bottom:7px}
+  input[type=text]{width:100%;font-family:var(--font);font-weight:600;font-size:.95rem;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:11px;color:var(--ink);padding:12px 14px;outline:none;transition:.2s}
+  input[type=text]:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(100,213,255,.15)}
+  .note{font-size:.78rem;color:var(--mut);line-height:1.55;margin-top:10px}
+  .actionbar{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;gap:10px;justify-content:center;padding:14px 18px calc(16px + env(safe-area-inset-bottom));background:linear-gradient(180deg,transparent,var(--ground) 45%)}
+  .btn{flex:1;max-width:200px;font-family:var(--font);font-weight:700;font-size:.88rem;padding:13px 18px;border-radius:13px;border:1px solid var(--line-2);background:var(--glass);color:var(--acc);cursor:pointer;transition:.2s;backdrop-filter:blur(12px)}
+  .btn:hover{background:rgba(100,213,255,.12)}
+  .btn.primary{background:linear-gradient(135deg,var(--acc),var(--acc-2));color:#00161f;border-color:transparent;box-shadow:0 6px 20px rgba(100,213,255,.28)}
+  .btn.ghost{color:var(--ink);border-color:var(--line)}
+</style>
+<script>
+  // load common.js (with retry), then bootstrap the settings form
+  (function loadFiles(){
+    var l=document.createElement('script');l.src='common.js';
+    l.onload=function(){S();};
+    l.onerror=function(){setTimeout(loadFiles,100);};
+    document.head.appendChild(l);
+  })();
+  function S(){
+    getLoc();
+    loadJS(getURL('/settings/s.js?p=3'), false);
+    if (loc) d.Sf.action = getURL('/settings/ui');
+  }
+</script>
+</head>
+<body>
+<div id="bg"></div>
+<div class="wrap">
+  <header>
+    <div class="mark" id="mk"></div>
+    <div class="htext"><h1>User Interface</h1><span>Arsenal51</span></div>
+    <a class="back" onclick="B()"><span id="bk"></span>Settings</a>
+  </header>
+
+  <form id="form_s" name="Sf" method="post">
+    <div class="card">
+      <h2>Device</h2>
+      <div class="field">
+        <label>Device Name</label>
+        <input type="text" name="DS" maxlength="32" placeholder="Orbiter">
+      </div>
+      <p class="note">The name shown in the app, on your network, and to Alexa &amp; Home Assistant.</p>
+    </div>
+    <!-- kept for firmware compatibility; simplified-UI has no effect on the custom interface -->
+    <input type="checkbox" name="SU" id="SU" style="display:none">
+  </form>
+</div>
+
+<div class="actionbar">
+  <button type="button" class="btn ghost" onclick="B()">Back</button>
+  <button type="button" class="btn primary" onclick="d.Sf.submit()">Save</button>
+</div>
+
+<script>
+  var P='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">',E='</svg>';
+  document.getElementById('mk').innerHTML='<svg viewBox="0 0 24 24"><circle cx="12" cy="18.5" r="1.8" style="fill:var(--acc);stroke:none"/><path d="M7 18.5a5 5 0 0 1 10 0" fill="none" stroke="var(--acc)" stroke-width="1.6" opacity=".9"/><path d="M3.5 18.5a8.5 8.5 0 0 1 17 0" fill="none" stroke="var(--acc)" stroke-width="1.6" opacity=".55"/><path d="M.5 18.5a11.5 11.5 0 0 1 23 0" fill="none" stroke="var(--acc)" stroke-width="1.6" opacity=".28"/></svg>';
+  document.getElementById('bk').innerHTML=P+'<path d="M15 18l-6-6 6-6"/>'+E;
+</script>
+</body>
+</html>

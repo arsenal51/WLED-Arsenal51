@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#06080b">
+<title>Security &amp; Updates · Arsenal51</title>
+<style>
+  @font-face{font-family:'Barlow';font-style:normal;font-weight:700;src:url('/Barlow-Bold.woff2') format('woff2');}
+  :root{--ground:#06080b;--glass:rgba(255,255,255,.05);--glass-2:rgba(255,255,255,.08);--line:rgba(255,255,255,.10);--line-2:rgba(100,213,255,.28);--acc:#64d5ff;--acc-2:#4ab8e6;--glow:rgba(100,213,255,.42);--ink:#e8f4fa;--mut:rgba(232,244,250,.55);--mut-2:rgba(232,244,250,.34);--warn:#ffb347;--font:'Barlow',-apple-system,'Segoe UI',system-ui,sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{visibility:visible}
+  body{font-family:var(--font);background:var(--ground);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
+  svg{display:block}
+  #bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+  #bg::before,#bg::after{content:"";position:fixed;border-radius:50%;filter:blur(80px);opacity:.5}
+  #bg::before{width:80vw;height:80vw;left:-30vw;top:-32vw;background:radial-gradient(circle,rgba(100,213,255,.2),transparent 66%);animation:drift 22s ease-in-out infinite alternate}
+  #bg::after{width:70vw;height:70vw;right:-25vw;bottom:-26vw;background:radial-gradient(circle,rgba(74,184,230,.15),transparent 68%);animation:drift 26s ease-in-out infinite alternate-reverse}
+  @keyframes drift{to{transform:translate3d(5vw,4vw,0) scale(1.14)}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  .wrap{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:24px 18px 120px}
+  header{display:flex;align-items:center;gap:13px;margin-bottom:22px}
+  .mark{width:44px;height:44px;border-radius:13px;flex-shrink:0;display:grid;place-items:center;background:linear-gradient(150deg,rgba(100,213,255,.22),rgba(100,213,255,.04));border:1px solid var(--line-2);box-shadow:0 0 18px rgba(100,213,255,.18),inset 0 0 12px rgba(100,213,255,.1)}
+  .mark svg{width:25px;height:25px}
+  .htext h1{font-size:1.32rem;font-weight:800;line-height:1}
+  .htext span{display:block;font-size:.57rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mut-2);margin-top:5px}
+  .back{margin-left:auto;display:flex;align-items:center;gap:8px;padding:10px 15px;border-radius:12px;border:1px solid var(--line);background:var(--glass);color:var(--ink);cursor:pointer;transition:.2s;font:700 .8rem var(--font);backdrop-filter:blur(12px)}
+  .back:hover{border-color:var(--line-2);color:var(--acc)}
+  .back svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .card{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px;backdrop-filter:blur(14px)}
+  .card h2{font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--acc);margin-bottom:12px}
+  .frow{display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+  .frow:first-of-type{border-top:none;padding-top:2px}
+  .frow .lab{flex:1;min-width:0}
+  .frow .lab b{display:block;font-size:.9rem;font-weight:600}
+  .frow .lab small{display:block;color:var(--mut);font-size:.72rem;margin-top:2px;line-height:1.4}
+  .field{padding:12px 0;border-top:1px solid var(--line)}
+  .field:first-of-type{border-top:none;padding-top:2px}
+  .field label{display:block;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut-2);margin-bottom:7px}
+  input[type=text],input[type=password]{width:100%;font-family:var(--font);font-weight:600;font-size:.95rem;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:11px;color:var(--ink);padding:12px 14px;outline:none;transition:.2s}
+  .frow input{max-width:140px;text-align:center;letter-spacing:.18em}
+  input:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(100,213,255,.15)}
+  .sw{appearance:none;-webkit-appearance:none;position:relative;width:46px;height:26px;flex-shrink:0;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid var(--line);cursor:pointer;transition:.3s;margin:0}
+  .sw::after{content:"";position:absolute;top:50%;left:3px;width:18px;height:18px;transform:translateY(-50%);border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.45);transition:.28s cubic-bezier(.4,.9,.3,1.3)}
+  .sw:checked{background:linear-gradient(135deg,var(--acc),var(--acc-2));border-color:transparent;box-shadow:0 0 12px var(--glow)}
+  .sw:checked::after{left:23px;background:#00161f}
+  .btn{font-family:var(--font);font-weight:700;font-size:.86rem;padding:12px 18px;border-radius:12px;border:1px solid var(--line-2);background:var(--glass);color:var(--acc);cursor:pointer;transition:.2s;text-decoration:none;display:flex;align-items:center;gap:9px;justify-content:center;width:100%}
+  .btn:hover{background:rgba(100,213,255,.12)}
+  .btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .stack{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+  .upl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 0 2px;border-top:1px solid var(--line)}
+  .upl span{font-size:.8rem;color:var(--mut);flex:1;min-width:100px}
+  .upl button{font-family:var(--font);font-weight:700;font-size:.8rem;padding:8px 14px;border-radius:10px;border:1px solid var(--line-2);background:var(--glass);color:var(--acc);cursor:pointer}
+  input[type=file]{font-size:.78rem;color:var(--mut);max-width:100%}
+  .warn{background:rgba(255,183,71,.08);border:1px solid rgba(255,183,71,.3);border-radius:11px;padding:11px 14px;margin:12px 0;font-size:.79rem;color:var(--warn);line-height:1.5}
+  .note{font-size:.78rem;color:var(--mut);line-height:1.55;margin:10px 0}
+  .note a,.about a{color:var(--acc)}
+  .note strong{color:var(--warn)}
+  .about{font-size:.86rem;line-height:1.7;color:var(--mut)}
+  .actionbar{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;gap:10px;justify-content:center;padding:14px 18px calc(16px + env(safe-area-inset-bottom));background:linear-gradient(180deg,transparent,var(--ground) 45%)}
+  .actionbar .btn{flex:1;max-width:200px;padding:13px 18px;border-radius:13px}
+  .actionbar .primary{background:linear-gradient(135deg,var(--acc),var(--acc-2));color:#00161f;border-color:transparent;box-shadow:0 6px 20px rgba(100,213,255,.28)}
+  .actionbar .ghost{color:var(--ink);border-color:var(--line)}
+  #toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:10;background:var(--glass-2);border:1px solid var(--line-2);color:var(--ink);padding:10px 18px;border-radius:12px;backdrop-filter:blur(12px)}
+  .hide{display:none!important}
+</style>
+<script>
+  (function loadFiles(){
+    var l=document.createElement('script');l.src='common.js';
+    l.onload=function(){S();};
+    l.onerror=function(){setTimeout(loadFiles,100);};
+    document.head.appendChild(l);
+  })();
+  function U(){ window.open(getURL("/update"),"_self"); }
+  function checkNum(o){
+    const specialkeys=["Backspace","Tab","Enter","Shift","Control","Alt","Pause","CapsLock","Escape","Space","PageUp","PageDown","End","Home","ArrowLeft","ArrowUp","ArrowRight","ArrowDown","Insert","Delete"];
+    if(event.key.match(/[0-9]/)||specialkeys.includes(event.key))return true;
+    event.preventDefault();return false;
+  }
+  function setBckFilename(x){ x.setAttribute("download","wled_"+x.getAttribute("download")+(sd=="WLED"?"":("_"+sd))); }
+  function S(){
+    getLoc();
+    if(loc){
+      gId("bckcfg").setAttribute('href',getURL(gId("bckcfg").pathname));
+      gId("bckpresets").setAttribute('href',getURL(gId("bckpresets").pathname));
+    }
+    loadJS(getURL('/settings/s.js?p=6'), false, undefined, ()=>{
+      setBckFilename(gId("bckcfg"));
+      setBckFilename(gId("bckpresets"));
+    });
+    if(loc) d.Sf.action = getURL('/settings/sec');
+  }
+</script>
+</head>
+<body>
+<div id="bg"></div>
+<div class="wrap">
+  <header>
+    <div class="mark" id="mk"></div>
+    <div class="htext"><h1>Security &amp; Updates</h1><span>Arsenal51</span></div>
+    <a class="back" onclick="B()"><span id="bk"></span>Settings</a>
+  </header>
+
+  <form id="form_s" name="Sf" method="post">
+
+    <div class="card">
+      <h2>Access PIN</h2>
+      <div class="field">
+        <label>Settings PIN (4 digits)</label>
+        <input type="password" id="PIN" name="PIN" size="4" maxlength="4" minlength="4" onkeydown="checkNum(this)" pattern="[0-9]*" inputmode="numeric" title="Please enter a 4 digit number" style="max-width:160px">
+      </div>
+      <div class="frow">
+        <div class="lab"><b>Lock WiFi settings</b><small>Deny access to WiFi setup while the PIN is locked</small></div>
+        <input type="checkbox" class="sw" name="OW" id="cb-ow">
+      </div>
+      <div class="frow">
+        <div class="lab"><b>Factory reset</b><small>Erase all settings and presets on save</small></div>
+        <input type="checkbox" class="sw" name="RS" id="cb-rs">
+      </div>
+      <div class="warn">&#9888; Settings are sent unencrypted. Don't reuse a banking, door, or SIM PIN here.</div>
+    </div>
+
+    <div class="card" id="OTA">
+      <h2>Software Update</h2>
+      <div class="stack">
+        <button type="button" class="btn" onclick="U()"><svg viewBox="0 0 24 24"><path d="M12 3v11M8 10l4 4 4-4"/><path d="M5 19h14"/></svg>Manual firmware update</button>
+      </div>
+      <div class="frow">
+        <div class="lab"><b>Lock wireless (OTA) update</b><small>Block over-the-air firmware flashing</small></div>
+        <input type="checkbox" class="sw" name="NO" id="cb-no">
+      </div>
+      <div class="field">
+        <label>OTA Passphrase</label>
+        <input type="password" name="OP" maxlength="32" style="text-align:left;letter-spacing:normal;max-width:100%">
+      </div>
+      <div class="frow" id="aOTA">
+        <div class="lab"><b>Enable ArduinoOTA</b></div>
+        <input type="checkbox" class="sw" name="AO" id="cb-ao">
+      </div>
+      <div class="frow">
+        <div class="lab"><b>Same network only</b><small>Only allow updates from this WiFi/subnet</small></div>
+        <input type="checkbox" class="sw" name="SU" id="cb-su">
+      </div>
+      <p class="note">To enable OTA you must also set the passphrase. <strong>Disable OTA when not in use</strong> — an attacker could otherwise reflash the device. These settings are only editable when OTA lock is off.</p>
+    </div>
+
+    <div class="card" id="backup">
+      <h2>Backup &amp; Restore</h2>
+      <div class="warn">&#9888; Restoring overwrites your current configuration &amp; presets. Passwords are never included in backups.</div>
+      <div class="stack">
+        <a class="btn" id="bckpresets" href="/presets.json" download="presets"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 11l5 4 5-4"/><path d="M5 20h14"/></svg>Backup presets</a>
+        <a class="btn" id="bckcfg" href="/cfg.json" download="cfg"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 11l5 4 5-4"/><path d="M5 20h14"/></svg>Backup configuration</a>
+      </div>
+      <div class="upl"><span>Restore presets</span><input type="file" name="data" accept=".json"><button type="button" onclick="uploadFile(d.Sf.data,'/presets.json');">Upload</button></div>
+      <div class="upl"><span>Restore configuration</span><input type="file" name="data2" accept=".json"><button type="button" onclick="uploadFile(d.Sf.data2,'/cfg.json');">Upload</button></div>
+    </div>
+
+    <div class="card">
+      <h2>About</h2>
+      <p class="about">
+        <b style="color:var(--ink)">Orbiter</b> by Arsenal51<br>
+        Firmware: <span class="sip">—</span>
+      </p>
+    </div>
+
+    <div id="toast"></div>
+  </form>
+</div>
+
+<div class="actionbar">
+  <button type="button" class="btn ghost" onclick="B()">Back</button>
+  <button type="button" class="btn primary" onclick="d.Sf.submit()">Save</button>
+</div>
+
+<script>
+  var P='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">',E='</svg>';
+  document.getElementById('mk').innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.6" stroke-linecap="round"><rect x="5" y="10" width="14" height="10" rx="2.4"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15" r="1.4" style="fill:var(--acc);stroke:none"/></svg>';
+  document.getElementById('bk').innerHTML=P+'<path d="M15 18l-6-6 6-6"/>'+E;
+</script>
+</body>
+</html>
